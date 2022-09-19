@@ -1,0 +1,174 @@
+* {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #222;
+  font-size: 100%;
+  color: #eee;
+}
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 25rem);
+  gap: 1.5rem;
+  justify-content: center;
+  padding: 1rem;
+  color: #fff8;
+  box-sizing: border-box;
+}
+
+.container {
+  padding: 0 1rem;
+  margin: 0.8rem;
+  border-radius: 15px;
+  background-color: #0008;
+  color: inherit;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.conditions {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.conditions img {
+  filter: invert(100%) sepia(96%) saturate(15%) hue-rotate(235deg)
+    brightness(105%) contrast(100%) opacity(50%);
+}
+
+.minmax img {
+  filter: invert(100%) sepia(96%) saturate(15%) hue-rotate(235deg)
+    brightness(105%) contrast(100%) opacity(50%);
+}
+
+.extradata img {
+  filter: invert(100%) sepia(96%) saturate(15%) hue-rotate(235deg)
+    brightness(105%) contrast(100%) opacity(50%);
+}
+
+.hours img {
+  filter: invert(100%) sepia(96%) saturate(15%) hue-rotate(235deg)
+    brightness(105%) contrast(100%) opacity(50%);
+}
+
+.lhour img {
+  filter: invert(100%) sepia(96%) saturate(15%) hue-rotate(235deg)
+    brightness(105%) contrast(100%) opacity(50%);
+}
+
+.days img {
+  filter: invert(100%) sepia(96%) saturate(15%) hue-rotate(235deg)
+    brightness(105%) contrast(100%) opacity(50%);
+}
+
+.lday img {
+  filter: invert(100%) sepia(96%) saturate(15%) hue-rotate(235deg)
+    brightness(105%) contrast(100%) opacity(50%);
+}
+
+.extradata {
+  padding: 1rem 0;
+}
+.extradata div {
+  padding: 0.5rem 0;
+}
+
+h7.icon-text {
+  padding-left: 0.5rem;
+}
+
+.card {
+  background: url("../images/2.jpg");
+  border: 1rem;
+  position: relative;
+  width: 380px;
+  height: 669px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+}
+
+.cover {
+  background-color: rgba(0, 0, 0, 0.125);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 15px;
+}
+
+.delete_div {
+  position: absolute;
+  right: 0px;
+  top: 0.1rem;
+}
+
+button {
+  margin: 0.5em;
+  border-radius: 50%;
+  height: 46px;
+  width: 46px;
+  border: none;
+  outline: none;
+  background: #7c7c7c2b;
+  color: rgba(255, 255, 255, 0.692);
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  box-sizing: border-box;
+}
+
+button:hover {
+  background: #7c7c7c6b;
+}
+
+.form__input {
+  border: none;
+  outline: none;
+  padding: 0.5em 1em;
+  border-radius: 24px;
+  background-color: #7c7c7c2b;
+  color: white;
+  font-family: inherit;
+  font-size: 110%;
+}
+
+.temp h1 {
+  text-align: left;
+}
+
+.temp div {
+  padding: 0.5rem 0;
+}
+
+.maxmin {
+  padding-bottom: 1rem;
+}
+
+.future {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 1rem 0;
+  gap: 1rem;
+}
+
+.hours,
+.lhour,
+.days,
+.lday {
+  text-align: center;
+}

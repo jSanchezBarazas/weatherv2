@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <title>Weather v2.0</title>
+  </head>
+  <body>
+    <div class="navbar">
+      <h1>Weather</h1>
+      <div class="search">
+        <input
+          type="text"
+          id="city"
+          class="form__input"
+          autocomplete="off"
+          placeholder="Search..."
+        />
+        <button>
+          <svg
+            stroke="currentColor"
+            fill="currentColor"
+            stroke-width="0"
+            viewBox="0 0 1024 1024"
+            height="2.8em"
+            width="2.8em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+            ></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="card-wrapper">
+      <div class="card" id="card0">
+        <div class="cover">
+          <div class="delete_div">
+            <button class="delete_button" onclick="removeCard(this)">
+              <svg
+                stroke="currentColor"
+                fill="currentColor"
+                stroke-width="0"
+                version="1.2"
+                baseProfile="tiny"
+                viewBox="1 -1 24 24 "
+                height="2.8em"
+                width="2.8em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 3c-4.963 0-9 4.038-9 9s4.037 9 9 9 9-4.038 9-9-4.037-9-9-9zm0 16c-3.859 0-7-3.14-7-7s3.141-7 7-7 7 3.14 7 7-3.141 7-7 7zM12.707 12l2.646-2.646c.194-.194.194-.512 0-.707-.195-.194-.513-.194-.707 0l-2.646 2.646-2.646-2.647c-.195-.194-.513-.194-.707 0-.195.195-.195.513 0 .707l2.646 2.647-2.646 2.646c-.195.195-.195.513 0 .707.097.098.225.147.353.147s.256-.049.354-.146l2.646-2.647 2.646 2.646c.098.098.226.147.354.147s.256-.049.354-.146c.194-.194.194-.512 0-.707l-2.647-2.647z"
+                ></path>
+              </svg>
+            </button>
+          </div>
+          <div class="container"><h1>Anderson</h1></div>
+          <div class="container">
+            <div class="temp">
+              <div><h1 id="temp0">65°F</h1></div>
+              <div><h7 id="desc0">Clear sky</h7></div>
+              <div><h4 id="feels0">65°F</h4></div>
+              <div class="minmax">
+                <img src="./icons/min24.svg" alt="" />
+                <h7 id="min1">71°F</h7>
+                <img src="./icons/max24.svg" alt="" />
+                <h7 id="max1">76°F</h7>
+              </div>
+            </div>
+            <div class="conditions">
+              <img src="./icons/64/50n.svg" alt="" />
+            </div>
+          </div>
+          <div class="container">
+            <div class="extradata">
+              <div>
+                <img class="icon" src="./icons/humidity24.svg" alt="" />
+                <h7 class="icon-text">76%</h7>
+              </div>
+              <div>
+                <img class="icon" src="./icons/wind24.svg" alt="" />
+                <h7 class="icon-text">6.91 mph SSW</h7>
+              </div>
+            </div>
+            <div class="extradata">
+              <div>
+                <img class="icon" src="./icons/sunrise24.svg" alt="" />
+                <h7 class="icon-text">7:28 AM</h7>
+              </div>
+              <div>
+                <img class="icon" src="./icons/sunset24.svg" alt="" />
+                <h7 class="icon-text">7:48 PM</h7>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="future">
+              <div class="hours">
+                <h7 id="hour11">11 AM</h7>
+                <div>
+                  <img
+                    id="iconHour11"
+                    src="./icons/50/02n.svg"
+                    alt=""
+                    class="icon"
+                  />
+                </div>
+                <h7 id="tempHour11">73°F</h7>
+              </div>
+              <div class="hours">
+                <h7 id="hour12">2 PM</h7>
+                <div>
+                  <img
+                    id="iconHour12"
+                    src="./icons/50/50d.svg"
+                    alt=""
+                    class="icon"
+                  />
+                </div>
+                <h7 id="tempHour12">75°F</h7>
+              </div>
+              <div class="hours">
+                <h7 id="hour13">5 PM</h7>
+                <div>
+                  <img
+                    id="iconHour13"
+                    src="./icons/50/50n.svg"
+                    alt=""
+                    class="icon"
+                  />
+                </div>
+                <h7 id="tempHour13">79°F</h7>
+              </div>
+              <div class="hours">
+                <h7 id="hour14">8 PM</h7>
+                <div>
+                  <img
+                    id="iconHour14"
+                    src="./icons/50/13d.svg"
+                    alt=""
+                    class="icon"
+                  />
+                </div>
+                <h7 id="tempHour14">73°F</h7>
+              </div>
+              <div class="lhour">
+                <h7 id="hour15">11 PM</h7>
+                <img
+                  id="iconHour15"
+                  src="./icons/50/11n.svg"
+                  alt=""
+                  class="icon"
+                />
+                <h7 id="tempHour15">69°F</h7>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="future">
+              <div class="days">
+                <h7 id="day11">Mon</h7>
+                <div>
+                  <img
+                    id="icon11"
+                    src="./icons/50/01n.svg"
+                    alt=""
+                    class="icon"
+                  />
+                </div>
+                <h7 id="temp11">64°F</h7>
+              </div>
+              <div class="days">
+                <h7 id="day12">Tue</h7>
+                <div>
+                  <img
+                    id="icon12"
+                    src="./icons/50/04d.svg"
+                    alt=""
+                    class="icon"
+                  />
+                </div>
+                <h7 id="temp12">64°F</h7>
+              </div>
+              <div class="days">
+                <h7 id="day13">Wed</h7>
+                <div>
+                  <img
+                    id="icon13"
+                    src="./icons/50/04n.svg"
+                    alt=""
+                    class="icon"
+                  />
+                </div>
+                <h7 id="temp13">71°F</h7>
+              </div>
+              <div class="days">
+                <h7 id="day14">Thu</h7>
+                <div>
+                  <img
+                    id="icon14"
+                    src="./icons/50/01d.svg"
+                    alt=""
+                    class="icon"
+                  />
+                </div>
+                <h7 id="temp14">52°F</h7>
+              </div>
+              <div class="lday">
+                <h7 id="day15">Fri</h7>
+                <img id="icon15" src="./icons/50/01d.svg" alt="" class="icon" />
+                <h7 id="temp15">40°F</h7>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./script/script.js"></script>
+  </body>
+</html>
