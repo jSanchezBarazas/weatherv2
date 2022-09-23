@@ -1,5 +1,5 @@
 const apikey = "&appid=43a2945a6d8d45fe8147d44181ef632b";
-var urlCitysearch = "http://api.openweathermap.org/geo/1.0/direct?q="
+var urlCitysearch = "https://api.openweathermap.org/geo/1.0/direct?q="
 var urlForecast = "https://api.openweathermap.org/data/2.5/forecast?"
 var urlWeather = "https://api.openweathermap.org/data/2.5/weather?"
 var result = -1
