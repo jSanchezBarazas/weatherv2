@@ -436,11 +436,16 @@ function addElement(city) {
 
 function setBackgroundImage(i, city) {
     var folder
+    let seasson = ''
+    let month = (new Date()).toLocaleDateString(locale, { month: "2-digit" });
+    let day = (new Date()).toLocaleDateString(locale, { day: "2-digit" });
+
+    let season = getSeason(month, day);
     if (["almeria", "anderson", "chirivel", "greenwood", "juaida", "malaga", "middletown", "santirso"].includes(city)) {
         folder = city;
     }
     else {
-        folder = "generic"
+        folder = "generic/" + season
     }
     var card = document.getElementById("card" + i);
     card.style.backgroundImage = 'url(./images/' + folder + '/' + random(5) + '.jpg)';
