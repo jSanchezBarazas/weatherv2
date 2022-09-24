@@ -8,12 +8,12 @@ var localization = {
     "en":
         [
             // { id: "headtittle", text: "Weather" },
-            { id: "city", text: "Search City..." }
+            { id: "city", text: "Add City..." }
         ],
     "es":
         [
             //{ id: "headtittle", text: "Tiempo" },
-            { id: "city", text: "Buscar Ciudad..." }
+            { id: "city", text: "Añadir Ciudad..." }
         ]
 }
 
@@ -449,8 +449,9 @@ function setBackgroundImage(i, city) {
     let day = (new Date()).toLocaleDateString(locale, { day: "2-digit" });
 
     let season = getSeason(month, day);
-    if (["almeria", "anderson", "chirivel", "greenwood", "juaida", "malaga", "middletown", "santirso"].includes(city)) {
-        folder = city;
+    let normalizecity = city.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    if (["almeria", "anderson", "chirivel", "greenwood", "juaida", "malaga", "middletown", "santirso"].includes(normalizecity)) {
+        folder = normalizecity;
     }
     else {
         folder = "generic/" + season

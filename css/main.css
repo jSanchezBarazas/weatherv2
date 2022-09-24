@@ -253,3 +253,9 @@ input[type="checkbox"].toggle:checked + label::after {
 .nav:last-child {
   margin-left: auto;
 }
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: hsla(0, 0%, 100%, 55%);
+  opacity: 1; /* Firefox */
+}
