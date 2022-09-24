@@ -3,7 +3,6 @@ var urlCitysearch = "https://api.openweathermap.org/geo/1.0/direct?q="
 var urlForecast = "https://api.openweathermap.org/data/2.5/forecast?"
 var urlWeather = "https://api.openweathermap.org/data/2.5/weather?"
 var result = -1
-var index_card = 1;
 var lang
 var localization = {
     "en":
@@ -303,37 +302,41 @@ function mayusc(str) {
 
 
 function setLocalStorage(city) {
-    switch (city) {
+    let position = city.search("#")
+    let search = city.slice(position + 1);
+    let index = city.substring(0, position)
+    switch (search) {
         case "juaida":
             localStorage.setItem(city, "lat=36.86&lon=-2.46&");
-            addElement(city.toLowerCase());
+            addElement(search.toLowerCase(), locale, index);
             chkUnit_toggle(document.getElementById("check1"));
             break;
         case "santirso":
             localStorage.setItem(city, "lat=42.24&lon=-7.56&");
-            addElement(city.toLowerCase());
+            addElement(search.toLowerCase(), locale, index);
             chkUnit_toggle(document.getElementById("check1"));
             break;
         case "middletown":
             localStorage.setItem(city, "lat=40.06&lon=-85.54&");
-            addElement(city.toLowerCase());
+            addElement(search.toLowerCase(), locale, index);
             chkUnit_toggle(document.getElementById("check1"));
             break;
         case "anderson":
             localStorage.setItem(city, "lat=40.10&lon=-85.68&");
-            addElement(city.toLowerCase());
+            addElement(search.toLowerCase(), locale, index);
             chkUnit_toggle(document.getElementById("check1"));
             break;
         case "greenwood":
             localStorage.setItem(city, "lat=39.59&lon=-86.08&");
-            addElement(city.toLowerCase());
+            addElement(search.toLowerCase(), locale, index);
             chkUnit_toggle(document.getElementById("check1"));
             break;
         default:
-            fetch(urlCitysearch + city + apikey).then((response) => response.json()).then((data) => {
+            //   console.log(urlCitysearch + search + apikey);
+            fetch(urlCitysearch + search + apikey).then((response) => response.json()).then((data) => {
                 try {
                     localStorage.setItem(city, "lat=" + data[0].lat + "&lon=" + data[0].lon + "&")
-                    addElement(city.toLowerCase());
+                    addElement(search.toLowerCase(), locale, index);
                     chkUnit_toggle(document.getElementById("check1"));
 
                 } catch (e) {
@@ -346,7 +349,10 @@ function setLocalStorage(city) {
 
 function addElementSearchBar() {
     var search = document.querySelector(".form__input").value
-    var lat, lon
+
+
+    search = (localStorage.length + 1) + '#' + search.trim();
+    //console.log(search);
     if (search != '') {
         if (!localStorage.getItem(search)) {
             setLocalStorage(search.toLowerCase());
@@ -356,9 +362,10 @@ function addElementSearchBar() {
     window.scrollTo(0, document.querySelector(".card-wrapper").scrollHeight);
 }
 
-function addElement(city) {
+function addElement(city, locale, index_card) {
     if (city != '') {
-        var coords = localStorage.getItem(city);
+        var coords = localStorage.getItem(index_card + '#' + city);
+        //     console.log(index_card + '#' + city);
         var target = document.querySelector(".card-wrapper");
         var sHTML = '<div class="card" index="' + index_card + '" coords="' + coords + '" city="' + city + '" id="card' + index_card + '"> ' +
             '<div class="cover">' +
@@ -430,7 +437,7 @@ function addElement(city) {
         target.innerHTML += sHTML;
 
         setBackgroundImage(index_card, city);
-        index_card += 1;
+        //  index_card += 1;
 
     }
 }
@@ -458,8 +465,10 @@ function setBackgroundImage(i, city) {
 }
 function removeCard(elem) {
     div = elem.closest('.card');
-    h = document.getElementById('city' + (div.id).replace('card', ''));
-    localStorage.removeItem(h.innerText.toLowerCase())
+    let card = (div.id).replace('card', '');
+    h = document.getElementById('city' + card);
+
+    localStorage.removeItem(card + '#' + h.innerText.toLowerCase())
     if (div) {
         div.remove();
     }
@@ -496,10 +505,25 @@ if (!link) {
 link.href = './icons/' + season + '.png'
 
 
+let cities = new Array();
+
 for (let i = 0; i < localStorage.length; i++) {
     const key = localStorage.key(i);
-    addElement(key, locale);
+    cities.push(key)
+
 };
+//console.log(cities.sort());
+
+/*for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    addElement(key, locale);
+};*/
+cities.forEach((element, index) => {
+    let position = element.search("#")
+    let search = element.slice(position + 1);
+    //    console.log(element.substring(0, position));
+    addElement(search, locale, element.substring(0, position));
+});
 
 let language = ''
 

@@ -104,7 +104,7 @@ h7.icon-text {
 }
 
 .cover {
-  background-color: rgba(0, 0, 0, 0.125);
+  background-color: rgba(0, 0, 0, 0);
   position: absolute;
   top: 0;
   left: 0;
