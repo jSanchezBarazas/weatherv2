@@ -11,6 +11,7 @@ body {
   background: #222;
   font-size: 100%;
   color: #ddd;
+  height: 100%;
 }
 .navbar {
   background: #222d;
@@ -19,6 +20,9 @@ body {
   z-index: 1031;
 }
 
+h1 {
+  white-space: nowrap;
+}
 .navbar h1 {
   padding-left: 1rem;
   padding-top: 1rem;
@@ -142,6 +146,7 @@ button:hover {
   color: inherit;
   font-family: inherit;
   font-size: 110%;
+  width: 60%;
 }
 
 .form__input:focus,
@@ -241,13 +246,10 @@ input[type="checkbox"].toggle:checked + label::after {
 .nav {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
-.nav:first-child {
-  margin-right: auto;
-}
 .nav:last-child {
   margin-left: auto;
 }

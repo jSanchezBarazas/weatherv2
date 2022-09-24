@@ -8,11 +8,13 @@ var lang
 var localization = {
     "en":
         [
-            { id: "headtittle", text: "Weather" },
+            // { id: "headtittle", text: "Weather" },
+            { id: "city", text: "Search City..." }
         ],
     "es":
         [
-            { id: "headtittle", text: "Tiempo" },
+            //{ id: "headtittle", text: "Tiempo" },
+            { id: "city", text: "Buscar Ciudad..." }
         ]
 }
 
@@ -27,6 +29,9 @@ function chkUnit_toggle(s) {
         }
         else if (dom.textContent) {
             dom.textContent = a.text
+        }
+        else if (dom.placeholder) {
+            dom.placeholder = a.text
         }
     }
     let unit;
@@ -310,11 +315,6 @@ function setLocalStorage(city) {
             chkUnit_toggle(document.getElementById("check1"));
             break;
         case "middletown":
-            localStorage.setItem(city, "lat=36.86&lon=-2.46&");
-            addElement(city.toLowerCase());
-            chkUnit_toggle(document.getElementById("check1"));
-            break;
-        case "juaida":
             localStorage.setItem(city, "lat=40.06&lon=-85.54&");
             addElement(city.toLowerCase());
             chkUnit_toggle(document.getElementById("check1"));
@@ -353,6 +353,7 @@ function addElementSearchBar() {
         }
     }
     document.querySelector(".form__input").value = '';
+    window.scrollTo(0, document.querySelector(".card-wrapper").scrollHeight);
 }
 
 function addElement(city) {
